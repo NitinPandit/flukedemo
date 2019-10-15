@@ -1,0 +1,46 @@
+<igx-grid #grid1 [data]="localData"  widht="auto" height="auto">
+    <igx-column-group header="Set Values" >
+        <igx-column header="Tube Voltage" field="TubeVoltage" [hasSummary]="true" [summaries]="mySummary">
+        </igx-column>
+        <igx-column header="mAs" field="mAs"></igx-column>
+    </igx-column-group>
+    <igx-column-group header="Test Values">
+
+        <!-- Custom Cell Template -->
+
+        <igx-column header="Dose" field="Dose" [hasSummary]="true" [dataType]="'number'">
+                <ng-template igxCell let-val>
+                        <div class="cell__inner" class="Box">
+                           {{val}}
+                        </div>
+                    </ng-template>
+        </igx-column>
+        <igx-column header="Exposure Time" field="ExposureTime" [hasSummary]="true" [dataType]="'number'">
+                <ng-template igxCell let-val>
+                        <div class="cell__inner" class="Box">
+                           {{val}}
+                        </div>
+                    </ng-template>
+        </igx-column>
+         <!-- Custom Cell & Header Template -->
+        <igx-column field="TubeVoltagePeak" [hasSummary]="true" [dataType]="'number'">
+                <ng-template igxHeader>
+                       <div>
+                                Tube Voltage Peak
+                       </div>
+                </ng-template>
+                <ng-template igxCell let-val>
+                        <div class="cell__inner" class="Box">
+                           {{val}}
+                        </div>
+                </ng-template>
+        </igx-column>
+    </igx-column-group>
+    <igx-column-group header="Calculated Values">
+
+            <!-- resizable column -->
+        <igx-column header="Column X" field="ColumnX" resizable="true"></igx-column>
+        <igx-column header="Column Y" field="ColumnY"></igx-column>
+        <igx-column header="Column Z" field="ColumnZ"></igx-column>
+    </igx-column-group>
+</igx-grid>
